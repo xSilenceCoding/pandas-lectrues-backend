@@ -1,0 +1,35 @@
+1)
+
+2)
+df = df.Name
+
+3)
+df = df[['Name','Einwohner']][ df['Einwohner'] > 1E08 ]
+
+4)
+df = df['Name'][ df['BIP'].between(1E9,100E9) ]
+
+5)
+df = df[['Name','Einwohner']][ df['Name'].str.contains('Frankreich|Deutschland|Polen', regex=True) ]
+
+6)
+df['Einwohner in Mio'] = (df['Einwohner']/1E6).round(2)
+df = df[['Name', 'Einwohner in Mio']] [ df['Region'] == 'Südamerika' ]
+
+7)
+df['pro Kopf-Jahreseinkommen'] = (df['BIP']/df['Einwohner']).round(2)
+df = df[['Name','pro Kopf-Jahreseinkommen']] [ df['Einwohner'] > 200E6 ]
+
+8)
+df['pro Kopf-Jahreseinkommen'] = (df['BIP']/df['Einwohner']).round(2)
+df[['Name','pro Kopf-Jahreseinkommen']] [ df['Einwohner'] > 200E6 ].sort_values(by='pro Kopf-Jahreseinkommen')
+
+9)
+df = df[ df['Name'].str.contains("Vereinigte", regex=True) ]
+
+10)
+df = df['Region']
+df = pd.unique(df)
+df.sort()
+
+11)
